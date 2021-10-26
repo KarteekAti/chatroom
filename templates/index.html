@@ -11,11 +11,11 @@
 var connectionOptions =  {
             "force new connection" : true,
             "reconnectionAttempts": "Infinity", //avoid having user reconnect manually in order to prevent dead clients after a server restart
-            "timeout" : 10000, //before connect_error and connect_timeout are emitted.
-            "transports" : ["websocket"]
+            "timeout" : 10000 //before connect_error and connect_timeout are emitted.
+            
         };
 $(document).ready(function() {
-	const socket = io("https://chatroom-private.herokuapp.com",connectionOptions);
+	const socket = io("https://chatroom-private.herokuapp.com/",connectionOptions);
     console.log(socket); 
 
 
