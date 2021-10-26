@@ -1,8 +1,7 @@
 from flask import Flask 
 from flask_socketio import SocketIO, emit, send
-from flask_cors import CORS
 import config
-
+import os
 app = Flask(__name__,instance_relative_config=False)
 app.config.from_object('config.Config')
 socketio = SocketIO(app,cors_allowed_origins='*')
@@ -13,4 +12,5 @@ def handleMessage(msg):
 	send(msg, broadcast=True)
 
 if __name__ == '__main__':
-	socketio.run(app, host=(config.Config.SERVER),port=5004)  
+	port = int(os.environ.get('PORT', 5000))
+	socketio.run(app, host=(config.Config.SERVER),port=port)  
