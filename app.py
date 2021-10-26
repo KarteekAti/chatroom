@@ -7,7 +7,6 @@ app = Flask(__name__,instance_relative_config=False)
 CORS(app)
 app.config.from_object('config.Config')
 app.config['CORS_HEADERS'] = 'Content-Type'
-app.config['SESSION_TYPE'] = 'asn181067'
 socketio = SocketIO(app,cors_allowed_origins='*')
 
 @app.route("/")
@@ -21,4 +20,4 @@ def handleMessage(msg):
 
 if __name__ == '__main__':
 	port = int(os.environ.get('PORT', 5000))
-	app.run(port=port)  
+	socketio.run(app,port=port)  
