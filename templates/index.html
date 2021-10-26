@@ -15,7 +15,7 @@ var connectionOptions =  {
             "transports" : ["websocket"]
         };
 $(document).ready(function() {
-	const socket = io("https://chatroom-private.herokuapp.com/",connectionOptions);
+	const socket = io("https://chatroom-private.herokuapp.com",connectionOptions);
     console.log(socket); 
 
 
