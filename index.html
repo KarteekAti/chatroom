@@ -8,9 +8,14 @@
 </head>
 <body>
 <script type="text/javascript">
+var connectionOptions =  {
+            "force new connection" : true,
+            "reconnectionAttempts": "Infinity", //avoid having user reconnect manually in order to prevent dead clients after a server restart
+            "timeout" : 10000, //before connect_error and connect_timeout are emitted.
+            "transports" : ["websocket"]
+        };
 $(document).ready(function() {
-    console.log(location.port);
-	const socket = io('karteekati.github.io:5000');
+	const socket = io('http://localhost:5000',connectionOptions);
     console.log(socket); 
 
 	socket.on('connect', function() {
