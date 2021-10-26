@@ -16,7 +16,7 @@ var connectionOptions =  {
             "transports" : ["websocket"]
         };
 $(document).ready(function() {
-	const socket = io(connectionOptions);
+	const socket = io("http://"+document.domain+":"+location.port,connectionOptions);
     console.log(socket); 
 
 
