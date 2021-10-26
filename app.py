@@ -9,7 +9,7 @@ app.config.from_object('config.Config')
 app.config['CORS_HEADERS'] = 'Content-Type'
 socketio = SocketIO(app,cors_allowed_origins='*')
 
-@app.route("/")
+@app.route("/",methods=['GET', 'POST'])
 def index():
   return render_template('index.html',)
 
