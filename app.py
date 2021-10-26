@@ -1,4 +1,6 @@
 from flask import Flask ,render_template
+import eventlet
+eventlet.monkey_patch()
 from flask_cors import CORS
 from flask_socketio import SocketIO, emit, send
 import config
