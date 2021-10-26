@@ -1,10 +1,11 @@
 from flask import Flask 
-from flask_socketio import SocketIO, send
+from flask_socketio import SocketIO, emit, send
 from flask_cors import CORS
+import config
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'mysecret'
-socketio = SocketIO(app, cors_allowed_origins='*')
+app = Flask(__name__,instance_relative_config=False)
+app.config.from_object('config.Config')
+socketio = SocketIO(app,cors_allowed_origins='*')
 
 @socketio.on('message')
 def handleMessage(msg):
@@ -12,4 +13,4 @@ def handleMessage(msg):
 	send(msg, broadcast=True)
 
 if __name__ == '__main__':
-	socketio.run(app,debug=False,host='0.0.0.0')   
+	app.run()   
