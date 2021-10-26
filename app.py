@@ -17,4 +17,4 @@ def handleMessage(msg):
 
 if __name__ == '__main__':
 	port = int(os.environ.get('PORT', 5000))
-	socketio.run(app, host=config.Config.SERVER,port=port)  
+	socketio.run(app,port=port)  
