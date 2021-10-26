@@ -1,6 +1,4 @@
 from flask import Flask ,render_template
-import eventlet
-eventlet.monkey_patch()
 from flask_cors import CORS
 from flask_socketio import SocketIO, emit, send
 import config
@@ -9,7 +7,7 @@ app = Flask(__name__,instance_relative_config=False)
 CORS(app)
 app.config.from_object('config.Config')
 app.config['CORS_HEADERS'] = 'Content-Type'
-socketio = SocketIO(app,cors_allowed_origins='*')
+socketio = SocketIO(app,cors_allowed_origins='*',async_mode='gevent')
 
 @app.route("/",methods=['GET', 'POST'])
 def index():
