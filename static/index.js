@@ -7,7 +7,8 @@ var connectionOptions =  {
 
 
 $(document).ready(function() {
-const socket = io("http://localhost:5000",connectionOptions);
+const socket = io("http://"+document.domain+":"+location.port,connectionOptions); 
+
 console.log(socket); 
 
 socket.on('connect', async function() {
@@ -58,8 +59,6 @@ socket.on('message', async function(msg) {
     console.log(user_name);
     console.log('Received message');
     });
-    
-
     });
 
 
