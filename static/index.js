@@ -14,7 +14,9 @@ console.log(socket);
 socket.on('connect', async function() {
     var usr_name =  await get_Name();
     console.log(usr_name);
-    socket.send('User has connected!');	
+    if(usr_name != ''){
+        socket.send('User has connected!');	
+    }
 
 
 $('#signin').on('click', function() {
@@ -54,7 +56,7 @@ $('#sendbutton').on('click', function() {
 socket.on('message', async function(msg) {
     //let user_name =  await get_Name();
     $("#messages").append('<li>'+msg+'</li>');
-    console.log(user_name);
+
     console.log('Received message');
     });
     });
