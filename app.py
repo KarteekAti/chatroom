@@ -9,7 +9,10 @@ app = Flask(__name__,instance_relative_config=False)
 CORS(app)
 app.config.from_object('config.Config')
 app.config['CORS_HEADERS'] = 'Content-Type'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL?sslmode=require')
+uri = os.getenv("DATABASE_URL")
+if uri and uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://", 1)
+app.config['SQLALCHEMY_DATABASE_URI'] = uri 
 socketio = SocketIO(app,cors_allowed_origins='*',async_mode='gevent')
 
 
