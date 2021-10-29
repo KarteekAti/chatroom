@@ -52,12 +52,9 @@ def handleMessage(msg):
 	print('Message :' + msg)
 	send(msg, broadcast=True)
 
-@app.route('/get_name')
+@app.route('/get_name',methods=['GET'])
 def get_name():
-	data = {'name' : ''}
-	if NAME_KEY in session:
-		data = {'name':session['name']}
-	return jsonify(data)	
+	return session['name']
 
 @socketio.on('signin')
 def signin(payLoad):

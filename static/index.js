@@ -55,7 +55,7 @@ $('#sendbutton').on('click', function() {
 
 socket.on('message', async function(msg) {
     let user_name =  await get_Name();
-    $("#messages").append('<li>'+user_name+':'+msg+'</li>');
+    $("#messages").append('<li>'+user_name+''+msg+'</li>');
     console.log('Received message');
     });
     });
@@ -69,6 +69,7 @@ async function get_Name(){
         return  response.json();   
       })
       .then(function (text) {
+        console.log(text['name']);
         return text["name"];
       });
 }
