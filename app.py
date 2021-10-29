@@ -63,8 +63,8 @@ def signin(payLoad):
 	except Exception as e:
 		print(e)	
 
+init_db()
 
 if __name__ == '__main__':	
-	init_db()
 	port = int(os.environ.get('PORT', 5000))
 	socketio.run(app,port=port)  
