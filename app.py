@@ -9,7 +9,7 @@ app = Flask(__name__,instance_relative_config=False)
 CORS(app)
 app.config.from_object('config.Config')
 app.config['CORS_HEADERS'] = 'Content-Type'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL?sslmode=require')
 socketio = SocketIO(app,cors_allowed_origins='*',async_mode='gevent')
 
 
@@ -20,6 +20,8 @@ def init_db():
     db.app = app
     db.create_all()
 
+
+init_db()
 @app.route('/')
 @app.route('/home',methods=['GET','POST'])
 def home():
@@ -63,7 +65,7 @@ def signin(payLoad):
 	except Exception as e:
 		print(e)	
 
-init_db()
+
 
 if __name__ == '__main__':	
 	port = int(os.environ.get('PORT', 5000))
