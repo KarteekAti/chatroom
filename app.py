@@ -9,7 +9,7 @@ app = Flask(__name__,instance_relative_config=False)
 CORS(app)
 app.config.from_object('config.Config')
 app.config['CORS_HEADERS'] = 'Content-Type'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://karteek:23212@localhost/chatroom'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 socketio = SocketIO(app,cors_allowed_origins='*',async_mode='gevent')
 
 
@@ -23,7 +23,6 @@ def init_db():
 @app.route('/')
 @app.route('/home',methods=['GET','POST'])
 def home():
-	print(session['name'])
 	return render_template('index.html',session=session)	
 
 @app.route('/login',methods=['GET','POST'])
