@@ -64,7 +64,7 @@ socket.on('message', async function(msg) {
 });
 
 async function get_Name(){
-    return fetch("/get_name")
+    return fetch("/get_name",{mode: "no-cors"})
     .then(function (response) {
         return  response.json();   
       })
