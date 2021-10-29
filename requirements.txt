@@ -5,6 +5,7 @@ eventlet==0.32.0
 Flask==2.0.2
 Flask-Cors==3.0.10
 Flask-SocketIO==5.1.1
+Flask-SQLAlchemy==2.5.1
 gevent==21.8.0
 gevent-websocket==0.10.1
 greenlet==1.1.2
@@ -12,9 +13,11 @@ gunicorn==20.1.0
 itsdangerous==2.0.1
 Jinja2==3.0.2
 MarkupSafe==2.0.1
+psycopg2-binary==2.9.1
 python-engineio==4.2.1
 python-socketio==5.4.1
 six==1.16.0
+SQLAlchemy==1.4.26
 Werkzeug==2.0.2
 zope.event==4.5.0
 zope.interface==5.4.0
