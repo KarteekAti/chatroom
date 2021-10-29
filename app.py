@@ -49,7 +49,7 @@ def signin():
 
 @socketio.on('message')
 def handleMessage(msg):
-	print(session['name'],':' + msg)
+	print('Message :' + msg)
 	send(msg, broadcast=True)
 
 @app.route('/get_name')
