@@ -69,7 +69,6 @@ async function get_Name(){
         return  response.json();   
       })
       .then(function (text) {
-        console.log(text['name']);
         return text["name"];
       });
 }
