@@ -66,7 +66,7 @@ $('#sendbutton').on('click', async function() {
             data: {name:user_name},
             crossDomain: true,
             dataType: 'json',
-            success: function(data){
+            complete: function(data){
                return data.name;
             }
             });
