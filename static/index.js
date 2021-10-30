@@ -2,7 +2,7 @@
 
 
 $(document).ready(function() {
-const socket = io("http://"+document.domain+":"+location.port+'/home'); 
+const socket = io("http://"+document.domain+":"+location.port); 
 
 console.log(socket); 
 
