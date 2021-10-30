@@ -60,10 +60,12 @@ $('#sendbutton').on('click', async function() {
 
     async function get_Name() {
         var user_name;
-        return $.get({
+        return $.ajax({
             url: "/get_name",
+            type: "GET",
             data: {name:user_name},
-            dataType: 'jsonp',
+            crossDomain: true,
+            dataType: 'json',
             success: function(data){
                return data.name;
             }
