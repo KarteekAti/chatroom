@@ -46,7 +46,6 @@ def login():
 
 @app.route('/home',methods=['GET','POST'])
 def home():
-	print(session['name'])
 	return render_template('index.html',**{'session':session})	
 
 
@@ -66,6 +65,7 @@ def handleMessage(data):
 def get_name():
 
 	data = {'name' : ''}
+	print(session['name'])
 	if NAME_KEY in session:
 		data = {'name':session['name']}
 	return jsonify(data)	
