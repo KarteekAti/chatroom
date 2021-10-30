@@ -1,5 +1,5 @@
 
-const socket = io("http://"+document.domain+":"+location.port); 
+const socket = io("https://"+document.domain+":"+location.port); 
 
 console.log(socket); 
 
