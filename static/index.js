@@ -55,7 +55,7 @@ $('#sendbutton').on('click', async function() {
         'name': user_name,
         'msg' : msg
     };
-    socket.send(data);
+    socket.emit('message',data);
     $('#myMessage').val('');
     });
 
