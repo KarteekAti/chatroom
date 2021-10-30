@@ -73,11 +73,10 @@ socket.on('message', async function(data) {
 
 async function get_Name(){
     return fetch("/get_name")
-    .then(function (response) {
-        console.log(response.json())
-        return  response.json();   
-      })
-      .then(function (text) {
-        return text["name"];
-      });
+    // .then(function (response) {
+    //     return  response.json();   
+    //   })
+    //   .then(function (text) {
+    //     return text["name"];
+    //   });
 }
