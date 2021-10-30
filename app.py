@@ -38,11 +38,11 @@ def login():
 			return redirect(url_for('login'))	
 	return render_template("login.html",**{'session':session})
 
-@app.route("/logout")
-def logout(data):
-    session.pop(NAME_KEY, None)
-    flash("0 {} {}".format(data['name'],data['msg']))
-    return redirect(url_for("login"))	
+# @app.route("/logout")
+# def logout(data):
+#     session.pop(NAME_KEY, None)
+#     flash("0 {} {}".format(data['name'],data['msg']))
+#     return redirect(url_for("login"))	
 
 @app.route('/home',methods=['GET','POST'])
 def home():
