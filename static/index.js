@@ -56,9 +56,19 @@ $('#sendbutton').on('click', async function() {
         });
     });
 
-
-    async function get_Name(){
-        const response = await fetch("/get_name");
-        const text = await response.json();
-        return text["name"];
+    async function get_Name() {
+        $.getJSON({
+            url: "/getData",
+            data: {'name':name },
+            success: function(data){
+               return data['name'];
+            }
+            });
     }
+    
+
+    // async function get_Name(){
+    //     const response = await fetch("/get_name");
+    //     const text = await response.json();
+    //     return text["name"];
+    // }
