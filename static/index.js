@@ -60,10 +60,11 @@ $('#sendbutton').on('click', async function() {
 
     async function get_Name() {
         var user_name;
-        return $.getJSON({
+        return $.get({
             url: "/get_name",
             data: {name:user_name},
-            headers: {"X-Test-Header": "*"},
+            crossDomain: true,
+            dataType: 'jsonp',
             success: function(data){
                return data.name;
             }
