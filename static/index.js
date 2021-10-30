@@ -57,11 +57,21 @@ $('#sendbutton').on('click', async function() {
     $('#myMessage').val('');
     });
 
-socket.on('message', async function(data) {
+    socket.on('message', async function(data) {
     $("#messages").append('<li>'+data['name']+':'+data['msg']+'</li>');
     console.log('Received message');
         });
     });
+
+    window.onbeforeunload = function () {
+        var user_name =  await get_Name();
+        var msg =  'has Disconnected from server.'
+        var data = {
+            'name': user_name,
+            'msg' : msg
+        };
+        socket.emit('logout',data);
+    }
 });
 
 async function get_Name(){
