@@ -4,7 +4,7 @@ const socket = io("https://"+document.domain+":"+location.port);
 console.log(socket); 
 
 socket.on('connect', async function() {
-    var usr_name =  await get_Name();
+    var usr_name =  await await get_Name();
     usr_name = usr_name.name;
     console.log(usr_name);
     if(usr_name != ''){
