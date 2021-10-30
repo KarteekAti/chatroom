@@ -50,8 +50,12 @@ password = $('#password').val();
 
 $('#sendbutton').on('click', async function() {
     var user_name =  await get_Name();
-    socket.send(user_name);
-    socket.send($('#myMessage').val());
+    var msg = $('#myMessage').val()
+    var data = {
+        'name': user_name,
+        'msg' : msg
+    };
+    socket.send(data);
     $('#myMessage').val('');
     });
 

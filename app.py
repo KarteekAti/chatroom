@@ -49,9 +49,9 @@ def signin():
 	return render_template('signin.html')	
 
 @socketio.on('message')
-def handleMessage(name,msg):
-	print('name: ' + msg)
-	send({'name':name, 'msg':msg}, broadcast=True)
+def handleMessage(data):
+	print(data['name']+': ' + data['msg'])
+	send({'name':data['name'], 'msg':data['msg']}, broadcast=True)
 
 @app.route('/get_name',methods=['GET'])
 def get_name():
