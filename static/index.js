@@ -73,9 +73,9 @@ socket.on('message', async function(data) {
 
 async function get_Name(){
     return fetch("/get_name")
-    // .then(function (response) {
-    //     return  response.json();   
-    //   })
+    .then(function (response) {
+        return  response.json();   
+       })
     //   .then(function (text) {
     //     return text["name"];
     //   });
