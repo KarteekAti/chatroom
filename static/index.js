@@ -67,15 +67,7 @@ socket.on('message', async function(data) {
     console.log('Received message');
         });
     });
-
-    socket.on("disconnect", async function (msg) {
-        var usr_name = await load_name();
-        socket.emit("logout");
-      });    
-
 });
-
-
 
 async function get_Name(){
     return fetch("/get_name")
