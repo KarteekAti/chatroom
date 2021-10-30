@@ -42,7 +42,7 @@ def login():
 @app.route('/home',methods=['GET','POST'])
 def home():
 	print(session)
-	return render_template('index.html',session=session)	
+	return render_template('index.html',**{'session':session})	
 
 
 
@@ -52,7 +52,6 @@ def signin():
 
 @socketio.on('message')
 def handleMessage(data):
-	print(data)
 	name = data.get('name')
 	msg = data.get('msg')
 	print('{}: {}'.format(name, msg))
