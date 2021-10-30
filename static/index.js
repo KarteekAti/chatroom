@@ -16,7 +16,7 @@ socket.on('connect', async function() {
     console.log(usr_name);
     if(usr_name != ''){
         var data = {
-            'username': usr_name,
+            'name': usr_name,
             'msg': 'User has connected!'
         };
         socket.emit('message',data);	
