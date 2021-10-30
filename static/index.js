@@ -63,7 +63,6 @@ $('#sendbutton').on('click', async function() {
         return $.get({
             url: "/get_name",
             data: {name:user_name},
-            crossDomain: true,
             dataType: 'jsonp',
             success: function(data){
                return data.name;
