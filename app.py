@@ -26,7 +26,7 @@ def init_db():
 
 init_db()
 
-
+@app.route('/')
 @app.route('/login',methods=['GET','POST'])
 def login():		
 	if request.method == 'POST':
@@ -38,7 +38,7 @@ def login():
 			return redirect(url_for('login'))	
 	return render_template("login.html",**{'session':session})
 
-@app.route('/')
+
 @app.route('/home',methods=['GET','POST'])
 def home():
 	return render_template('index.html',**{'session':session})	
@@ -72,8 +72,6 @@ def signin(payLoad):
 		print('Data Recieved')
 	except Exception as e:
 		print(e)	
-
-
 
 if __name__ == '__main__':	
 	port = int(os.environ.get('PORT', 5000))
