@@ -25,6 +25,7 @@ def init_db():
 
 
 init_db()
+
 @app.route('/')
 @app.route('/home',methods=['GET','POST'])
 def home():
@@ -48,9 +49,9 @@ def signin():
 	return render_template('signin.html')	
 
 @socketio.on('message')
-def handleMessage(msg):
-	print('Message :' + msg)
-	send(msg, broadcast=True)
+def handleMessage(name,msg):
+	print('name: ' + msg)
+	send({'name':name, 'msg':msg}, broadcast=True)
 
 @app.route('/get_name',methods=['GET'])
 def get_name():
@@ -59,7 +60,7 @@ def get_name():
 		data = {'name':session['name']}
 	return jsonify(data)	
 
-@socketio.on('signin')
+@socketio.on('signin') 	
 def signin(payLoad):
 	try:
 		info = Users(first_name=payLoad['firstname'],last_name=payLoad['lastname'],username=payLoad['username'],password=payLoad['password'])

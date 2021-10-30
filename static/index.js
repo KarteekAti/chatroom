@@ -48,17 +48,18 @@ password = $('#password').val();
         });
     });
 
-$('#sendbutton').on('click', function() {
+$('#sendbutton').on('click', async function() {
+    var user_name =  await get_Name();
+    socket.send(user_name);
     socket.send($('#myMessage').val());
     $('#myMessage').val('');
     });
 
-socket.on('message', async function(msg) {
-    let user_name =  await get_Name();
-    $("#messages").append('<li>'+user_name+':'+msg+'</li>');
+socket.on('message', async function(data) {
+    $("#messages").append('<li>'+data['name']+':'+data['msg']+'</li>');
     console.log('Received message');
     });
-    });
+});
 
 
 });
