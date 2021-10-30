@@ -59,9 +59,9 @@ $('#sendbutton').on('click', async function() {
     async function get_Name() {
         $.getJSON({
             url: "/getData",
-            data: {'name':name },
+            data: {name:usr_name },
             success: function(data){
-               return data['name'];
+               return data.usr_name;
             }
             });
     }
