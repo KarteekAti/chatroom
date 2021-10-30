@@ -76,7 +76,7 @@ async function get_Name(){
     .then(function (response) {
         return  response.json();   
        })
-    //   .then(function (text) {
-    //     return text["name"];
-    //   });
+       .then(function (text) {
+         return text["name"];
+       });
 }
