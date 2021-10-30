@@ -26,11 +26,6 @@ def init_db():
 
 init_db()
 
-@app.route('/')
-@app.route('/home',methods=['GET','POST'])
-def home():
-	print(session)
-	return render_template('index.html',session=session)	
 
 @app.route('/login',methods=['GET','POST'])
 def login():		
@@ -42,6 +37,13 @@ def login():
 		else:
 			return redirect(url_for('login'))	
 	return render_template("login.html",**{'session':session})
+
+@app.route('/')
+@app.route('/home',methods=['GET','POST'])
+def home():
+	print(session)
+	return render_template('index.html',session=session)	
+
 
 
 @app.route('/signin',methods=['GET','POST'])
