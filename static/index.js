@@ -1,7 +1,4 @@
 
-
-
-$(document).ready(function() {
 const socket = io("http://"+document.domain+":"+location.port); 
 
 console.log(socket); 
@@ -23,15 +20,12 @@ $('#signin').on('click', function() {
     username = $("#username").val();
     password = $("#password").val();
     socket.emit('signin',{'firstname':firstname,'lastname':lastname,'username':username, 'password':password});
-    console.log('sent');
     });
 
 $('#login').on('click', function() {
     username = $("#username").val();
     password = $("#password").val();
-    console.log(password);
     socket.emit('signin',{'username':username, 'password':password});
-    console.log('sent');
     });
 
 
@@ -59,10 +53,9 @@ $('#sendbutton').on('click', async function() {
 
     socket.on('message', async function(data) {
     $("#messages").append('<li>'+data['name']+':'+data['msg']+'</li>');
-    console.log('Received message');
         });
     });
-});
+
 
 async function get_Name(){
     return fetch("/get_name")
