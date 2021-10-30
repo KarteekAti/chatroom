@@ -21,10 +21,6 @@ socket.on('connect', async function() {
         };
         socket.emit('message',data);	
     }
-    else{
-        window.location.href = '/'
-    }
-
 
 $('#signin').on('click', function() {
     firstname = $("#firstname").val();
