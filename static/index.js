@@ -62,16 +62,6 @@ $('#sendbutton').on('click', async function() {
     console.log('Received message');
         });
     });
-
-    window.onbeforeunload = async function () {
-        var user_name =  await get_Name();
-        var msg =  'has Disconnected from server.'
-        var data = {
-            'name': user_name,
-            'msg' : msg
-        };
-        socket.emit('logout',data);
-    }
 });
 
 async function get_Name(){
