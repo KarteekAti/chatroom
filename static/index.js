@@ -62,7 +62,7 @@ $('#sendbutton').on('click', async function() {
             url: "/get_name",
             data: {name:usr_name},
             success: function(data){
-               return data.usr_name;
+               return data.name;
             }
             });
     }
