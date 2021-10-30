@@ -63,7 +63,7 @@ $('#sendbutton').on('click', async function() {
         });
     });
 
-    window.onbeforeunload = function () {
+    window.onbeforeunload = async function () {
         var user_name =  await get_Name();
         var msg =  'has Disconnected from server.'
         var data = {
