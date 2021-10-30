@@ -65,7 +65,6 @@ def handleMessage(data):
 def get_name():
 
 	data = {'name' : ''}
-	print(session['name'])
 	if NAME_KEY in session:
 		data = {'name':session['name']}
 	return jsonify(data)	
