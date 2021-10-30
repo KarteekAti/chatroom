@@ -65,6 +65,7 @@ $('#sendbutton').on('click', async function() {
                return data.name;
             }
             });
+            return data.name;
     }
     
 
