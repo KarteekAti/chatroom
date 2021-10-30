@@ -1,4 +1,4 @@
-from pathlib import Path  # python3 only
+from pathlib import Path 
 import os
 
 class Config:

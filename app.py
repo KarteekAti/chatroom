@@ -46,7 +46,7 @@ def login():
 
 @app.route('/home',methods=['GET','POST'])
 def home():
-	return render_template('index.html',**{'session':session})	
+	return render_template('index.html',{'session':session})	
 
 
 
@@ -61,8 +61,9 @@ def handleMessage(data):
 	print('{}: {}'.format(name, msg))
 	send({'name':name, 'msg':msg}, broadcast=True)
 
-@app.route('/get_name',methods=['GET'])
+@app.route('/get_name')
 def get_name():
+
 	data = {'name' : ''}
 	if NAME_KEY in session:
 		data = {'name':session['name']}
