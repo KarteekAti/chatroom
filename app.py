@@ -53,7 +53,7 @@ def handleMessage(data):
 	print(data)
 	name = data.get('name')
 	msg = data.get('msg')
-	print(name+': ' + msg)
+	print('{}: {}'.format(name, msg))
 	send({'name':name, 'msg':msg}, broadcast=True)
 
 @app.route('/get_name',methods=['GET'])
