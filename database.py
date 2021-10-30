@@ -11,8 +11,8 @@ class Users(db.Model):
 	password = db.Column(db.String(128),nullable=False)
 
 
-	# def __repr__(self):
-	# 	return '<User %r>' % self.username
+	def __repr__(self):
+		return '<User %r>' % self.username
 
 	def is_user(uname,passwd):
 		db_pass = Users.query.filter_by(username=uname).first()

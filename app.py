@@ -41,7 +41,6 @@ def login():
 @app.route('/')
 @app.route('/home',methods=['GET','POST'])
 def home():
-	print(session)
 	return render_template('index.html',**{'session':session})	
 
 
