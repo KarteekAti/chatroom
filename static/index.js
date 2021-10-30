@@ -62,10 +62,10 @@ $('#sendbutton').on('click', async function() {
             url: "/get_name",
             data: {name:usr_name},
             success: function(data){
+                console.log(data.name)
                return data.name;
             }
             });
-            return data.name;
     }
     
 
