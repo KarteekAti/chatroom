@@ -65,18 +65,22 @@ $('#sendbutton').on('click', async function() {
 socket.on('message', async function(data) {
     $("#messages").append('<li>'+data['name']+':'+data['msg']+'</li>');
     console.log('Received message');
+        });
     });
-});
-
 
 });
+
+socket.on("disconnect", async function (msg) {
+    var usr_name = await load_name();
+    socket.emit("logout");
+  });
 
 async function get_Name(){
     return fetch("/get_name")
     .then(function (response) {
         return  response.json();   
        })
-       .then(function (text) {
+       .then(function (text) {  
          return text["name"];
        });
 }
