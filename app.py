@@ -50,6 +50,7 @@ def signin():
 
 @socketio.on('message')
 def handleMessage(data):
+	print(data)
 	name = data.get('name')
 	msg = data.get('msg')
 	print(name+': ' + msg)
