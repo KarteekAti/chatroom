@@ -2,6 +2,7 @@ from flask import Flask ,render_template, url_for, redirect, request, session, j
 from flask_session import Session
 from flask_cors import CORS
 from flask_socketio import SocketIO, emit, send
+from flask_tailsman import Tailsman
 from database import db,Users
 import config
 import os	
@@ -11,6 +12,7 @@ app.config.from_object('config.Config')
 app.config['SECRET_KEY'] = os.environ.get('SECRET')
 CORS(app)
 Session(app)
+Tailsman(app)
 uri = os.getenv("DATABASE_URL")
 if uri and uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
@@ -37,7 +39,7 @@ def login():
 			name = Users.get_name(request.form['username'])
 			session['name'] = name
 			print(session.get('name'))
-			return redirect('/home')
+			return redirect('/homepip')
 	return render_template("login.html",session=session)
 
 # @app.route("/logout")
