@@ -17,6 +17,7 @@ socketio = SocketIO(app,cors_allowed_origins='*',async_mode='gevent')
 
 
 NAME_KEY = 'name'
+session['name'] = ''
 
 def init_db():
     db.init_app(app)
