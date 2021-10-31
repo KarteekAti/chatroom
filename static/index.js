@@ -23,14 +23,6 @@ $('#signin').on('click', function() {
     socket.emit('signin',{'firstname':firstname,'lastname':lastname,'username':username, 'password':password});
     });
 
-$('#login').on('click', function() {
-    username = $("#username").val();
-    password = $("#password").val();
-    socket.emit('signin',{'username':username, 'password':password});
-    });
-
-
-
 $('#login').click(function() {
 username = $('#username').val();
 password = $('#password').val();
