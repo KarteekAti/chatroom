@@ -7,3 +7,4 @@ class Config:
     SECRET_KEY = os.getenv('SECRET')
     SERVER =  '0.0.0.0'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SESSION_TYPE = 'filesystem'
