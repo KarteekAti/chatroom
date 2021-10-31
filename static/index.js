@@ -28,8 +28,9 @@ password = $('#password').val();
     });
 
 $('#sendbutton').on('click', async function() {
-    var msg = $('#myMessage').val()
-    socket.emit('message',msg);
+    socket.emit('message',{
+        data: $('#myMessage').val()
+      })
     $('#myMessage').val('');
     });
 
