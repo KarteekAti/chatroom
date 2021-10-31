@@ -56,10 +56,10 @@ def signin():
 
 @socketio.on('message')
 def handleMessage(data):
-	# name = session['name']
-	# print(data)
-	# data = str(data)
-	# print('{}: {}'.format(name, data))
+	name = session['name']
+	print(data)
+	data = str(data)
+	print('{}: {}'.format(name, data))
 	send(data, broadcast=True)
 
 @socketio.on('connected')
