@@ -1,9 +1,8 @@
+const socket = io("https://"+document.domain+":"+location.port); 
 
-const socket = io("https://"+document.domain+":"+location.port+'/home'); 
-
-console.log(socket); 
 
 socket.on('connect', function() {
+    console.log(socket); 
     socket.emit('connected', {
         data: 'User Connected'
       })	
