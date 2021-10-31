@@ -12,7 +12,6 @@ app.config.from_object('config.Config')
 app.config['SECRET_KEY'] = os.environ.get('SECRET')
 CORS(app)
 Session(app)
-sslify = Sslify(app)
 uri = os.getenv("DATABASE_URL")
 if uri and uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
