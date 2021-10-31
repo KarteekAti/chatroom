@@ -3,17 +3,9 @@ const socket = io("https://"+document.domain+":"+location.port);
 
 console.log(socket); 
 
-socket.on('connect', async function() {
-    var usr_name =  await get_Name();
-    usr_name = usr_name.name;
-    console.log(usr_name);
-    if(usr_name != ''){
-        var data = {
-            'name': usr_name,
-            'msg': 'User has connected!'
-        };
-        socket.emit('message',data);	
-    }
+socket.on('connect', function() {
+    socket.emit('join', {});	
+    });
 
 $('#signin').on('click', function() {
     firstname = $("#firstname").val();
@@ -34,8 +26,6 @@ password = $('#password').val();
     });
 
 $('#sendbutton').on('click', async function() {
-    var user_name =  await get_Name();
-    user_name = user_name.name;
     var msg = $('#myMessage').val()
     var data = {
         'name': user_name,
@@ -46,9 +36,8 @@ $('#sendbutton').on('click', async function() {
     });
 
     socket.on('message', async function(data) {
-    $("#messages").append('<li>'+data['name']+':'+data['msg']+'</li>');
+    $("#messages").append('<li>'+data+'</li>');
         });
-    });
 
     async function get_Name() {
         var user_name;

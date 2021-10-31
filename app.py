@@ -46,6 +46,8 @@ def login():
 
 @app.route('/home',methods=['GET','POST'])
 def home():
+	if session['name'] == '':
+		return redirect(url_for('login'))
 	return render_template('index.html',**{'session':session})	
 
 
@@ -62,12 +64,8 @@ def handleMessage(data):
 	send({'name':name, 'msg':msg}, broadcast=True)
 
 @app.route('/get_name')
-def get_name():
-
-	data = {'name' : ''}
-	if NAME_KEY in session:
-		data = {'name':session['name']}
-	return jsonify(data)	
+def get_name(msg):
+	emit('status', {'msg':  session.get('name') + ' has entered the room.'})
 
 @socketio.on('signin') 	
 def signin(payLoad):
