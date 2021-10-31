@@ -56,7 +56,7 @@ def signin():
 
 @socketio.on('message')
 def handleMessage(data):
-	usr_name = session.get(NAME_KEY)
+	usr_name = session.get('name')
 	print(data)
 	data = str(data)
 	print('{}: {}'.format(usr_name, data))
