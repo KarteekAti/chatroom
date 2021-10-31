@@ -59,6 +59,7 @@ def signin():
 @socketio.on('message')
 def handleMessage(data):
 	name = session['name']
+	data = str(data)
 	print('{}: {}'.format(name, data))
 	send({'name':name, 'msg':data}, broadcast=True)
 
