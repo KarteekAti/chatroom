@@ -31,27 +31,4 @@ password = $('#password').val();
         socket.send($('#myMessage').val());
         $('#myMessage').val('');
         });
-
-   
-
-    async function get_Name() {
-        var user_name;
-        return $.ajax({
-            url: "/get_name",
-            type: "GET",
-            data: {name:user_name},
-            crossDomain: true,
-            dataType: 'json',
-            complete: function(data){
-               return data.name;
-            }
-            });
-    }
-    
-
-    // async function get_Name(){
-    //     const response = await fetch("/get_name");
-    //     const text = await response.json();
-    //     return text["name"];
-    // }
 });
