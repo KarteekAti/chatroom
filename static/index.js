@@ -34,6 +34,7 @@ $('#sendbutton').on('click', async function() {
     });
 
     socket.on('message', async function(data) {
+        console.log(data['name']+': '+data['msg']);
     $("#messages").append('<li>'+data['name']+': '+data['msg']+'</li>');
         });
 
