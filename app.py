@@ -28,7 +28,7 @@ def init_db():
 
 init_db()
 
-@app.route('/')
+
 @app.route('/login',methods=['GET','POST'])
 def login():		
 	print(1)
@@ -37,7 +37,7 @@ def login():
 			name = Users.get_name(request.form['username'])
 			session['name'] = name
 			print(session.get('name'))
-			return redirect(url_for('home'))
+			return redirect('/')
 	return render_template("login.html",session=session)
 
 # @app.route("/logout")
@@ -45,7 +45,7 @@ def login():
 #     session.pop(NAME_KEY, None)
 #     flash("0 {} {}".format(data['name'],data['msg']))
 #     return redirect(url_for("login"))	
-
+@app.route('/')
 @app.route('/home',methods=['GET','POST'])
 def home():
 	if session.get('name') != '':
