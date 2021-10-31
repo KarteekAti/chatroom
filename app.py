@@ -8,6 +8,7 @@ import os
 
 app = Flask(__name__,instance_relative_config=False)
 app.config.from_object('config.Config')
+app.config['SECRET_KEY'] = os.environ.get('SECRET')
 CORS(app)
 Session(app)
 uri = os.getenv("DATABASE_URL")
