@@ -1,4 +1,5 @@
 from flask import Flask ,render_template, url_for, redirect, request, session, jsonify, flash, Blueprint
+from flask_session import Session
 from flask_cors import CORS
 from flask_socketio import SocketIO, emit, send
 from database import db,Users
@@ -7,6 +8,7 @@ import os
 
 app = Flask(__name__,instance_relative_config=False)
 CORS(app)
+Session(app)
 app.config.from_object('config.Config')
 app.config['CORS_HEADERS'] = 'Content-Type'
 uri = os.getenv("DATABASE_URL")
