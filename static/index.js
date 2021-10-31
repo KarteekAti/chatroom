@@ -4,7 +4,7 @@ const socket = io("https://"+document.domain+":"+location.port);
 console.log(socket); 
 
 socket.on('connect', function() {
-    socket.send();	
+    socket.emit('');	
     });
 
 $('#signin').on('click', function() {
@@ -27,16 +27,12 @@ password = $('#password').val();
 
 $('#sendbutton').on('click', async function() {
     var msg = $('#myMessage').val()
-    var data = {
-        'name': user_name,
-        'msg' : msg
-    };
-    socket.emit('message',data);
+    socket.emit('message',msg);
     $('#myMessage').val('');
     });
 
     socket.on('message', async function(data) {
-    $("#messages").append('<li>'+data+'</li>');
+    $("#messages").append('<li>'+data['name']+': '+data['msg']+'</li>');
         });
 
     async function get_Name() {

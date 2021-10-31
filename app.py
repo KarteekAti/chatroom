@@ -58,14 +58,11 @@ def signin():
 
 @socketio.on('message')
 def handleMessage(data):
-	name = data.get('name')
-	msg = data.get('msg')
-	print('{}: {}'.format(name, msg))
-	send({'name':name, 'msg':msg}, broadcast=True)
+	name = session['name']
+	print('{}: {}'.format(name, data))
+	send({'name':name, 'msg':data}, broadcast=True)
 
-@app.route('/get_name')
-def get_name():
-	emit('message', {'msg':  session.get('name') + ' has entered the room.'})
+
 
 @socketio.on('signin') 	
 def signin(payLoad):
