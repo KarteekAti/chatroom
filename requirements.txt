@@ -1,5 +1,4 @@
 appdirs==1.4.3
-apt-xapian-index==0.49
 backcall==0.2.0
 backports.entry-points-selectable==1.1.0
 blinker==1.4
