@@ -64,7 +64,7 @@ def handleMessage(data):
 	send({'name':name, 'msg':msg}, broadcast=True)
 
 @app.route('/get_name')
-def get_name(msg):
+def get_name():
 	emit('message', {'msg':  session.get('name') + ' has entered the room.'})
 
 @socketio.on('signin') 	
