@@ -31,7 +31,7 @@ init_db()
 
 # @app.route('/login',methods=['GET','POST'])
 
-@socketio.on('login', namespace='/login',)
+@socketio.on('login', namespace='/login')
 def login(data):		
 	print(1)
 	#if request.method == 'POST':
