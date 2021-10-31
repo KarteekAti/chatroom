@@ -4,7 +4,7 @@ const socket = io("https://"+document.domain+":"+location.port);
 console.log(socket); 
 
 socket.on('connect', function() {
-    socket.emit('');	
+    socket.emit('message','has connected to the server.');	
     });
 
 $('#signin').on('click', function() {
@@ -27,7 +27,7 @@ password = $('#password').val();
 
 $('#sendbutton').on('click', async function() {
     var msg = $('#myMessage').val()
-    socket.emit('message',msg);
+    socket.send(msg);
     $('#myMessage').val('');
     });
 
