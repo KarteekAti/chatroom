@@ -29,6 +29,7 @@ init_db()
 @app.route('/')
 @app.route('/login',methods=['GET','POST'])
 def login():		
+	print(1)
 	if request.method == 'POST':
 		if Users.is_user(request.form['username'],request.form['password']):
 			name = Users.get_name(request.form['username'])
@@ -36,7 +37,7 @@ def login():
 			return redirect(url_for('home'))
 		else:
 			return redirect(url_for('login'))	
-	return render_template("login.html",**{'session':session})
+	return render_template("login.html",session=session)
 
 # @app.route("/logout")
 # def logout(data):
@@ -46,7 +47,8 @@ def login():
 
 @app.route('/home',methods=['GET','POST'])
 def home():
-	return render_template('index.html',**{'session':session})	
+	print(2)
+	return render_template('index.html',session = session)	
 
 
 
@@ -56,6 +58,7 @@ def signin():
 
 @socketio.on('message')
 def handleMessage(data):
+	print(3)
 	usr_name = session.get('name')
 	print(session)
 	print('{}: {}'.format(usr_name, data))
