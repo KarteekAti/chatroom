@@ -62,7 +62,9 @@ def handleMessage(data):
 	print('{}: {}'.format(name, data))
 	send({'name':name, 'msg':data}, broadcast=True)
 
-
+@socketio.on('connected')
+def connect(data):
+	print(data)
 
 
 @socketio.on('signin') 	

@@ -4,7 +4,7 @@ const socket = io("https://"+document.domain+":"+location.port+'/home');
 console.log(socket); 
 
 socket.on('connect', function() {
-    socket.emit('message', {
+    socket.emit('connected', {
         data: 'User Connected'
       })	
     });
