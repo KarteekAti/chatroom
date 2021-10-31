@@ -1,4 +1,4 @@
-
+$(document).ready(function() {
 const socket = io("https://"+document.domain+":"+location.port); 
 
 
@@ -7,7 +7,6 @@ socket.on('connect', function() {
     socket.on('connect', function() {
 		socket.send('User has connected!');
 	});
-
     });
 
 $('#signin').on('click', function() {
@@ -58,3 +57,4 @@ password = $('#password').val();
     //     const text = await response.json();
     //     return text["name"];
     // }
+});
