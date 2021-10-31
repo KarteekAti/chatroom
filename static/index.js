@@ -1,3 +1,4 @@
+
 const socket = io("https://"+document.domain+":"+location.port); 
 
 
@@ -5,7 +6,7 @@ socket.on('connect', function() {
     console.log(socket); 
     socket.emit('connected', {
         data: 'User Connected'
-      })	
+      });	
     });
 
 $('#signin').on('click', function() {
