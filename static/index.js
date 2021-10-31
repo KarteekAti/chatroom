@@ -4,7 +4,7 @@ const socket = io("https://"+document.domain+":"+location.port);
 console.log(socket); 
 
 socket.on('connect', function() {
-    socket.emit('get_name', {});	
+    socket.send();	
     });
 
 $('#signin').on('click', function() {
