@@ -1,10 +1,12 @@
 
-const socket = io("https://"+document.domain+":"+location.port); 
+const socket = io("https://"+document.domain+":"+location.port+'/home'); 
 
 console.log(socket); 
 
 socket.on('connect', function() {
-    socket.send('has connected to the server.');	
+    socket.emit('messages', {
+        data: 'User Connected'
+      })	
     });
 
 $('#signin').on('click', function() {
