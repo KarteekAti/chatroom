@@ -24,7 +24,7 @@ password = $('#password').val();
         });
     });
     socket.on('message', function(data) {
-        $("#messages").append('<li>'+data+'</li>');
+        $("#messages").append('<li>'+data['name']+': '+data['msg']+'</li>');
             });
 
     $('#sendbutton').on('click', function() {
