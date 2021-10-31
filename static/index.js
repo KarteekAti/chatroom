@@ -1,13 +1,10 @@
 $(document).ready(function() {
 const socket = io("https://"+document.domain+":"+location.port); 
 
-
-socket.on('connect', function() {
-    console.log(socket); 
     socket.on('connect', function() {
 		socket.send('User has connected!');
 	});
-    });
+
 
 $('#signin').on('click', function() {
     firstname = $("#firstname").val();
