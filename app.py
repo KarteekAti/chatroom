@@ -2,7 +2,6 @@ from flask import Flask ,render_template, url_for, redirect, request, session, j
 from flask_session import Session
 from flask_cors import CORS
 from flask_socketio import SocketIO, emit, send
-from flask_sslify import Sslify
 from database import db,Users
 import config
 import os	
@@ -38,7 +37,7 @@ def login():
 			name = Users.get_name(request.form['username'])
 			session['name'] = name
 			print(session.get('name'))
-			return redirect('/homepip')
+			return redirect('/home')
 	return render_template("login.html",session=session)
 
 # @app.route("/logout")
