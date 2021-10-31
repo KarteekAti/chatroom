@@ -59,7 +59,7 @@ def signin():
 def handleMessage(data):
 	print(3)
 	usr_name = session.get('name')
-	print(session)
+	print(session.keys())
 	print('{}: {}'.format(usr_name, data))
 	data = {'name':usr_name, 'msg':data}
 	send(data, broadcast=True)
