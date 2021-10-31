@@ -26,12 +26,12 @@ password = $('#password').val();
         password : password
         });
     });
-    socket.on('message', async function(data) {
+    socket.on('message', function(data) {
         $("#messages").append('<li>'+data['name']+': '+data['msg']+'</li>');
-        console.log('Received message');
+        
             });
 
-    $('#sendbutton').on('click', async function() {
+    $('#sendbutton').on('click', function() {
         socket.emit('message',{
             data: $('#myMessage').val()
         })
