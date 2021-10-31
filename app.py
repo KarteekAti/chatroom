@@ -45,7 +45,7 @@ def login():
 
 @app.route('/home',methods=['GET','POST'])
 def home():
-	if session['name'] != ''
+	if session['name'] != '':
 		print(2)
 	return render_template('index.html',session = session)	
 
