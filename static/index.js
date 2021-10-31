@@ -26,17 +26,19 @@ password = $('#password').val();
         password : password
         });
     });
-
-$('#sendbutton').on('click', async function() {
-    socket.emit('message',{
-        data: $('#myMessage').val()
-      })
-    $('#myMessage').val('');
-    });
-
     socket.on('message', async function(data) {
-    $("#messages").append('<li>'+data['name']+': '+data['msg']+'</li>');
+        $("#messages").append('<li>'+data['name']+': '+data['msg']+'</li>');
+        console.log('Received message');
+            });
+
+    $('#sendbutton').on('click', async function() {
+        socket.emit('message',{
+            data: $('#myMessage').val()
+        })
+        $('#myMessage').val('');
         });
+
+   
 
     async function get_Name() {
         var user_name;
