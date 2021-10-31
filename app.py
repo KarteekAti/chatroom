@@ -35,8 +35,6 @@ def login():
 			name = Users.get_name(request.form['username'])
 			session['name'] = name
 			return redirect(url_for('home'))
-		else:
-			return redirect(url_for('login'))	
 	return render_template("login.html",session=session)
 
 # @app.route("/logout")
@@ -47,7 +45,8 @@ def login():
 
 @app.route('/home',methods=['GET','POST'])
 def home():
-	print(2)
+	if session['name'] != ''
+		print(2)
 	return render_template('index.html',session = session)	
 
 
