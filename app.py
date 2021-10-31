@@ -48,7 +48,7 @@ def login():
 @app.route('/')
 @app.route('/home',methods=['GET','POST'])
 def home():
-	if session.get('name') == '':
+	if session.get('name') == None:
 		return redirect('/login')
 	return render_template('index.html',session = session)	
 
