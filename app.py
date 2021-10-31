@@ -35,7 +35,7 @@ def login():
 		if Users.is_user(request.form['username'],request.form['password']):
 			name = Users.get_name(request.form['username'])
 			session['name'] = name
-			print(session.keys())
+			print(session.get('name'))
 			return redirect(url_for('home'))
 	return render_template("login.html",session=session)
 
@@ -61,7 +61,7 @@ def signin():
 def handleMessage(data):
 	print(3)
 	usr_name = session.get('name')
-	print(session.keys())
+	print(session.get('name'))
 	print('{}: {}'.format(usr_name, data))
 	data = {'name':usr_name, 'msg':data}
 	send(data, broadcast=True)
