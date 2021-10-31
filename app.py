@@ -17,7 +17,6 @@ socketio = SocketIO(app,cors_allowed_origins='*',async_mode='gevent')
 
 
 NAME_KEY = 'name'
-session['name'] = ''
 
 def init_db():
     db.init_app(app)
@@ -47,8 +46,6 @@ def login():
 
 @app.route('/home',methods=['GET','POST'])
 def home():
-	if session['name'] == '':
-		return redirect(url_for('login'))
 	return render_template('index.html',**{'session':session})	
 
 
@@ -63,7 +60,6 @@ def handleMessage(data):
 	data = str(data)
 	print('{}: {}'.format(name, data))
 	send({'name':name, 'msg':data}, broadcast=True)
-
 
 
 @socketio.on('signin') 	
