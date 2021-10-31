@@ -37,7 +37,7 @@ def login():
 			name = Users.get_name(request.form['username'])
 			session['name'] = name
 			print(session.get('name'))
-			return redirect('/')
+			return redirect('/home')
 	return render_template("login.html",session=session)
 
 # @app.route("/logout")
