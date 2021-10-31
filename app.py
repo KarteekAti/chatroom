@@ -48,8 +48,8 @@ def login():
 @app.route('/')
 @app.route('/home',methods=['GET','POST'])
 def home():
-	if session.get('name') != '':
-		print(2)
+	if session.get('name') == '':
+		return redirect('/login')
 	return render_template('index.html',session = session)	
 
 
