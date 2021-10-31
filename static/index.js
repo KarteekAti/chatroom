@@ -4,9 +4,10 @@ const socket = io("https://"+document.domain+":"+location.port);
 
 socket.on('connect', function() {
     console.log(socket); 
-    socket.emit('connected', {
-        data: 'User Connected'
-      });	
+    socket.on('connect', function() {
+		socket.send('User has connected!');
+	});
+
     });
 
 $('#signin').on('click', function() {
@@ -27,14 +28,11 @@ password = $('#password').val();
         });
     });
     socket.on('message', function(data) {
-        $("#messages").append('<li>'+data['name']+': '+data['msg']+'</li>');
-        
+        $("#messages").append('<li>'+data+'</li>');
             });
 
     $('#sendbutton').on('click', function() {
-        socket.emit('message',{
-            data: $('#myMessage').val()
-        })
+        socket.send($('#myMessage').val());
         $('#myMessage').val('');
         });
 
