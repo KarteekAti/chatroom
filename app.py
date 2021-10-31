@@ -7,10 +7,17 @@ import config
 import os	
 
 app = Flask(__name__,instance_relative_config=False)
+# app.config['CORS_HEADERS'] = 'Content-Type'
+# app.config['TESTING'] = False
+# app.config['DEBUG'] = True
+# app.config['SECRET_KEY'] = os.getenv('SECRET')
+# app.config['SERVER'] = '0.0.0.0'
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# app.config['SESSION_TYPE'] = 'filesystem'
+app.config.from_object('config.Config')
 CORS(app)
 Session(app)
-app.config.from_object('config.Config')
-app.config['CORS_HEADERS'] = 'Content-Type'
+
 uri = os.getenv("DATABASE_URL")
 if uri and uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
