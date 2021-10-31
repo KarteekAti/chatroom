@@ -37,7 +37,7 @@ def login():
 			session['name'] = name
 			print(session.get('name'))
 			return redirect(url_for('home'))
-	return render_template("login.html",session=session['name'])
+	return render_template("login.html",session=session)
 
 # @app.route("/logout")
 # def logout(data):
