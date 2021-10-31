@@ -80,4 +80,4 @@ def signin(payLoad):
 
 if __name__ == '__main__':	
 	port = int(os.environ.get('PORT', 5000))
-	socketio.run(app,port=port)  
+	socketio.run(app,port=port,ssl_context=('cert.pem', 'key.pem'))  
