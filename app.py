@@ -3,13 +3,13 @@ from flask_session import Session
 from flask_cors import CORS
 from flask_socketio import SocketIO, emit, send
 from database import db,Users
-from config import Config
+import config
 import os	
 
 app = Flask(__name__,instance_relative_config=False)
 CORS(app)
 Session(app)
-app.config.from_object('Config')
+app.config.from_object('config.Config')
 app.config['CORS_HEADERS'] = 'Content-Type'
 uri = os.getenv("DATABASE_URL")
 if uri and uri.startswith("postgres://"):
