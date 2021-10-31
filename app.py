@@ -56,16 +56,12 @@ def signin():
 
 @socketio.on('message')
 def handleMessage(data):
-	usr_name = session['name']
+	usr_name = session.get(NAME_KEY)
 	print(data)
 	data = str(data)
 	print('{}: {}'.format(usr_name, data))
 	data = {'name':usr_name, 'msg':data}
 	send(data, broadcast=True)
-
-@socketio.on('connected')
-def connect(data):
-	print(data)
 
 
 @socketio.on('signin') 	
