@@ -29,16 +29,18 @@ def init_db():
 init_db()
 
 
-@app.route('/login',methods=['GET','POST'])
-def login():		
+# @app.route('/login',methods=['GET','POST'])
+
+@socketio.on('login', namespace='/login',)
+def login(data):		
 	print(1)
-	if request.method == 'POST':
-		if Users.is_user(request.form['username'],request.form['password']):
-			name = Users.get_name(request.form['username'])
-			session['name'] = name
-			print(session.get('name'))
-			return redirect('/')
-	return render_template("login.html",session=session)
+	#if request.method == 'POST':
+	if Users.is_user(data['username'],data['password']):
+		name = Users.get_name(data['username'])
+		session['name'] = name
+		print(session.get('name'))
+			# return redirect('/')
+	# return render_template("login.html",session=session)
 
 # @app.route("/logout")
 # def logout(data):

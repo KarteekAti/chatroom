@@ -17,10 +17,10 @@ $('#signin').on('click', function() {
 $('#login').click(function() {
 username = $('#username').val();
 password = $('#password').val();
-    $.post('login',
+    socket.on('login',
     {
-        username : username,
-        password : password
+        'username' : username,
+        'password' : password
         });
     });
     socket.on('message', function(data) {
