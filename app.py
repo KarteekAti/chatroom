@@ -29,7 +29,9 @@ def init_db():
 init_db()
 
 
-# @app.route('/login',methods=['GET','POST'])
+@app.route('/login',methods=['GET','POST'])
+def logins():
+	return render_template('login.html')	
 
 @socketio.on('login', namespace='/login')
 def login(data):		
