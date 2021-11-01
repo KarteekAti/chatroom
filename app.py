@@ -49,8 +49,6 @@ def login():
 
 @app.route('/home',methods=['GET','POST'])
 def home():
-	if not request.is_secure:
-		return redirect(request.url.replace('http://', 'https://')) 
 	if session.get('name') == None:
 		return redirect('/login')
 	return render_template('index.html',session = session)	
