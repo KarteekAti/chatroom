@@ -34,7 +34,6 @@ init_db()
 
 @app.route('/login',methods=['GET','POST'])
 def login():		
-	print(1)
 	if request.method == 'POST':
 		if Users.is_user(request.form['username'],request.form['password']):
 			name = Users.get_name(request.form['username'])
@@ -64,7 +63,6 @@ def signin():
 
 @socketio.on('message')
 def handleMessage(data):
-	print(3)
 	usr_name = session.get('name')
 	print(session.get('name'))
 	print('{}: {}'.format(usr_name, data))
