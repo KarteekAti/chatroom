@@ -31,7 +31,7 @@ def init_db():
 
 init_db()
 
-@app.route('/')
+
 @app.route('/login',methods=['GET','POST'])
 def login():		
 	print(1)
@@ -49,6 +49,7 @@ def login():
 #     flash("0 {} {}".format(data['name'],data['msg']))
 #     return redirect(url_for("login"))	
 
+@app.route('/')
 @app.route('/home',methods=['GET','POST'])
 def home():
 	if session.get('name') == None:
