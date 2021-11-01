@@ -12,6 +12,7 @@ $('#signin').on('click', function() {
     username = $("#username").val();
     password = $("#password").val();
     socket.emit('signin',{'firstname':firstname,'lastname':lastname,'username':username, 'password':password});
+    window.location.href = '/login';
     });
 
 $('#login').click(function() {
