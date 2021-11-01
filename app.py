@@ -16,7 +16,7 @@ uri = os.getenv("DATABASE_URL")
 if uri and uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
 app.config['SQLALCHEMY_DATABASE_URI'] = uri 
-socketio = SocketIO(app,cors_allowed_origins='*',async_mode='gevent')
+socketio = SocketIO(app,async_mode='gevent')
 
 
 NAME_KEY = 'name'
