@@ -55,6 +55,14 @@ def home():
 		return redirect('/login')
 	return render_template('index.html',session = session)	
 
+@socketio.on('home')
+def handleMessage(data):
+	print(3)
+	usr_name = session.get('name')
+	print(session.get('name'))
+	print('{}: {}'.format(usr_name, data))
+	data = {'name':usr_name, 'msg':data}
+	send(data, broadcast=True)
 
 
 @app.route('/signin',methods=['GET','POST'])
@@ -66,6 +74,7 @@ def handleMessage(data):
 	print(3)
 	usr_name = session.get('name')
 	print(session.get('name'))
+	print(data)
 	print('{}: {}'.format(usr_name, data))
 	data = {'name':usr_name, 'msg':data}
 	send(data, broadcast=True)
