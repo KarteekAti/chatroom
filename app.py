@@ -2,11 +2,13 @@ from flask import Flask ,render_template, url_for, redirect, request, session, j
 from flask_session import Session
 from flask_cors import CORS
 from flask_socketio import SocketIO, emit, send
+from werkzeug.middleware.proxy_fix import ProxyFix
 from database import db,Users
 import config
 import os	
 
 app = Flask(__name__,instance_relative_config=False)
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1 ,x_proto=1)
 app.config.from_object('config.Config')
 app.config['SECRET_KEY'] = os.environ.get('SECRET')
 app.config['SESSION_COOKIE_SECURE'] = False
