@@ -2,7 +2,7 @@ $(document).ready(function() {
 const socket = io("https://"+document.domain+'/home'); 
 console.log(socket);
     socket.on('connect', function() {
-		socket.send('User has connected!');
+		socket.emit('home',{msg:'User has connected!'});
 	});
 
 
