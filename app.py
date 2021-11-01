@@ -56,7 +56,7 @@ def home():
 	return render_template('index.html',session = session)	
 
 @socketio.on('home')
-def handleMessage(data):
+def home(data):
 	print(3)
 	usr_name = session.get('name')
 	print(session.get('name'))
