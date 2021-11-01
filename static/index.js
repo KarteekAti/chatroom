@@ -24,9 +24,10 @@ password = $('#password').val();
         });
     });
     socket.on('message', function(data) {
-        $("#messages").append('<li>'+data['name']+': '+data['msg']+'</li>');
+        if(data.name != null){
+        $("#messages").append('<li>'+data['name']+': '+data['msg']+'</li>');}
             });
-
+            
     $('#sendbutton').on('click', function() {
         socket.send($('#myMessage').val());
         $('#myMessage').val('');
