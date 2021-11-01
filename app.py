@@ -79,6 +79,7 @@ def signin(payLoad):
 		db.session.add(info)
 		db.session.commit()
 		print('Data Recieved')
+		return redirect('login')
 	except Exception as e:
 		print(e)	
 
