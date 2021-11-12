@@ -28,9 +28,7 @@ def init_db():
     db.app = app
     db.create_all()
 
-
 init_db()
-
 
 @app.route('/login',methods=['GET','POST'])
 def login():		
@@ -49,8 +47,12 @@ def login():
 #     return redirect(url_for("login"))	
 
 @app.route('/')
-@app.route('/home',methods=['GET','POST'])
 def home():
+	
+	return render_template("home.html")
+
+@app.route('/chat',methods=['GET','POST'])
+def chat():
 	if session.get('name') == None:
 		return redirect('/login')
 	return render_template('index.html',session = session)	
@@ -82,5 +84,8 @@ def signin(payLoad):
 		print(e)	
 
 if __name__ == '__main__':	
+	
 	port = int(os.environ.get('PORT', 5000))
+	
 	socketio.run(app,port=port)  
+	

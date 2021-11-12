@@ -1,0 +1,23 @@
+.card{
+    position: relative;
+    top: 30%;
+    left: 40%;
+    width: 20%;
+    height: 30%;
+    border-radius: 2.5%;
+    align-items: center;
+}
+.card-body{
+    margin: 10px;
+}
+.btn{
+    margin-bottom: 50px;
+}
+#username,#password,#login,#signin,#firstname,#lastname{
+    padding: auto;
+    margin: 10px;
+    position: relative;
+}
+#login,#signin{
+    left: 125px;
+}

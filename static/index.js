@@ -1,3 +1,13 @@
+function toggle_visible(){
+    var x = document.getElementsByClassName("dropdown");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+}
+
+
 $(document).ready(function() {
 const socket = io("https://"+document.domain+":"+location.port); 
 console.log(socket);
@@ -34,3 +44,4 @@ password = $('#password').val();
         $('#myMessage').val('');
         });
 });
+

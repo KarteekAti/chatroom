@@ -1,28 +1,21 @@
-<html>
-<head>
-<title>Chat Room</title>
+{% extends "base.html" %}
 
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js" crossorigin="anonymous"></script> -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.0/socket.io.js" integrity="sha512-FPJNGVqbetcAGvuJTpWqVuaOim5C5pyV+JaiAOxtBgsOWy0aiOLM9k5Nh7ikpSzUoz2Tb9Ue6zYWICDr9zZ5+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
-<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
-</head>
-<body>
-<div class='login_form'>
+{% block title %}Login Page{% endblock %}
+
+{% block content %}
+
+<div class='card bg-dark text-white'>
     <div class="form">
         <form class="login-form" action="/login" method="POST">
             Username:  <input type="text" id="username" name="username">
             <br>
-            Password: <input type="password" id="password" name="password">
+            Password:  <input type="password" id="password" name="password">
             <br>
-            <button id="login">Login</button>
+            <button class="btn btn-outline-success" id="login">Login</button>
         </form>
     </div>
 
 <p>If not registered, <a href="/signin">Click to register</a></p>
 </div>
 
-</body>
-</html>
+{% endblock %}

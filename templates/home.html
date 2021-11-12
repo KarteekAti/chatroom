@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+<div class="card bg-dark text-white">
+    <div class="card-body">
+    <button type="button" class="btn btn-outline-primary">Create Room</button><br>
+    <form id="join" class="dropdown" method="post" action="index.html">
+    <input type="text" class="dropdown-toggle" placeholder="Enter Room ID">    
+    </form>
+    <button type="button" form="join" class="btn btn-outline-danger join" value="Submit">Join Room</button> 
+    </div>
+  </div>
+  {% endblock %}
